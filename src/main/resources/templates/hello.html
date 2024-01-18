@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<p>Hello World !!</p>
+	<p th:if="${variableName != 'default'}">le nom en paramètre: <span th:text="${variableName}"></span></p>
+
+	<div th:each="prenom: ${prenoms}">
+		<p th:text="'le prénom: ' + ${prenom}"></p>
+	</div>
+</body>
+</html>
