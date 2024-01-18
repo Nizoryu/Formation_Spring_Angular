@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+	crossorigin="anonymous">
+</head>
+<body>
+<a class="btn btn-primary" href="/soliste/home" role="button">home</a>
+<form th:object="${soliste}">
+  <fieldset disabled>
+    <legend>Recherche d'un soliste</legend>
+	  <div class="mb-3">
+	    <label for="id" class="form-label">id</label>
+	    <input type="number" class="form-control" id="id" name="id" th:value="*{id}">
+	  </div>
+	  <div class="mb-3">
+	    <label for="num" class="form-label">Num</label>
+	    <input type="number" class="form-control" id="num" name="num" th:value="*{num}">
+	  </div>
+	  <div class="mb-3">
+	    <label for="nom" class="form-label">nom</label>
+	    <input type="text" class="form-control" id="nom" name="nom" th:value="*{nom}">
+	  </div>
+	  <div class="mb-3">
+	    <label for="prenom" class="form-label">prenom</label>
+	    <input type="text" class="form-control" id="prenom" name="prenom" th:value="*{prenom}">
+	  </div>
+	  <div class="mb-3">
+	    <label for="dateNaissance" class="form-label">dateNaissance</label>
+	    <input type="date" class="form-control" id="dateNaissance" name="dateNaissance" th:value="*{dateNaissance}">
+	  </div>
+	  <div class="mb-3">
+	    <label for="nationalite" class="form-label">nationalite</label>
+	    <input type="text" class="form-control" id="nationalite" name="nationalite" th:value="*{nationalite}">
+	  </div>
+  </fieldset>
+  	<form method="get" action="findById">
+	  <div class="mb-3">
+	    <label for="id" class="form-label">Chercher par Id</label>
+	    <input type="id" class="form-control" id="id" name="id">
+	  </div>
+	  <button type="submit" class="btn btn-primary">Chercher</button>
+	</form>
+</form>
+</body>
+</html>
