@@ -35,6 +35,10 @@
 	  <div class="mb-3">
 	    <label for="nationalite" class="form-label">nationalite</label>
 	    <input type="text" class="form-control" id="nationalite" name="nationalite" th:value="*{nationalite}">
+      <label for="oeuvres" class="form-label">Choisir une oeuvre</label>
+      <select id="oeuvres" class="form-select" name="idOeuvre">
+        <option th:each="oeuvre: ${oeuvres}" th:value="${oeuvre.id}" th:text="${oeuvre.nom}"></option>
+      </select>
 	  </div>
 	  <button type="submit" class="btn btn-primary">Envoyer</button>
 	</form>

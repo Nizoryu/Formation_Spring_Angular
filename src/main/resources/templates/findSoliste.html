@@ -38,6 +38,10 @@
 	    <label for="nationalite" class="form-label">nationalite</label>
 	    <input type="text" class="form-control" id="nationalite" name="nationalite" th:value="*{nationalite}">
 	  </div>
+	  <div class="mb-3">
+	    <label for="nbOeuvre" class="form-label">Oeuvre(s)</label>
+	    <input type="text" class="form-control" id="nbOeuvre" name="nbOeuvre" th:value="${nbOeuvre}">
+	  </div>
   </fieldset>
   	<form method="get" action="findById">
 	  <div class="mb-3">

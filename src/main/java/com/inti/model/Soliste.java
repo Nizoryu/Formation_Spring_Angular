@@ -1,11 +1,16 @@
 package com.inti.model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 
 /**
  * Classe Solliste pour inscription dans la bdd
@@ -21,6 +26,12 @@ public class Soliste {
 	private String prenom;
 	private LocalDate dateNaissance;
 	private String nationalite;
+	
+	@ManyToMany
+	@JoinTable(name = "Oeuvre_Soliste",
+	joinColumns = @JoinColumn(name = "id_soliste"),
+	inverseJoinColumns = @JoinColumn(name = "id_oeuvre"))
+	List<Oeuvre> oeuvres;
 
 	public Soliste() {
 		super();
@@ -93,10 +104,24 @@ public class Soliste {
 		this.nationalite = nationalite;
 	}
 
+	public List<Oeuvre> getOeuvres() {
+		return oeuvres;
+	}
+
+	public void setOeuvres(List<Oeuvre> oeuvres) {
+		this.oeuvres = oeuvres;
+	}
+	
+	public void setOeuvres(Oeuvre oeuvre) {
+		List<Oeuvre> oeuvres = this.oeuvres;
+		oeuvres.add(oeuvre);
+		this.oeuvres = oeuvres;
+	}
+
 	@Override
 	public String toString() {
-		return "Solliste [id=" + id + ", num=" + num + ", nom=" + nom + ", prenom=" + prenom + ", dateNaissance="
-				+ dateNaissance + ", nationalite=" + nationalite + "]";
+		return "Soliste [id=" + id + ", num=" + num + ", nom=" + nom + ", prenom=" + prenom + ", dateNaissance="
+				+ dateNaissance + ", nationalite=" + nationalite + ", oeuvres=" + oeuvres + "]";
 	}
 
 }
